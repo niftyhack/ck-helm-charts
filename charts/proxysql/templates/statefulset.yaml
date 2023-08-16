@@ -21,7 +21,6 @@ spec:
         name: {{ include "proxysql.fullname" . }}-pv
       spec:
         accessModes: {{ .Values.proxysql.cluster.claim.accessModes }}
-        storageClassName: {{ .Values.proxysql.cluster.claim.storageClassName }}
         resources:
           requests:
             storage: {{ .Values.proxysql.cluster.claim.size }}
