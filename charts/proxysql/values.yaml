@@ -119,7 +119,6 @@ proxysql:
     claim:
       enabled: true
       accessModes: ["ReadWriteOnce"]
-      storageClassName: "default"
       size: "1Gi"
   mysql:
     version: "5.7.34"
