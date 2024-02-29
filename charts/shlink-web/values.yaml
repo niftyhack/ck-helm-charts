@@ -9,7 +9,7 @@ image:
   # -- image pull policy
   pullPolicy: Always
   # -- Overrides the image tag
-  tag: "3.10.2"
+  tag: "4.0.1"
 
 # -- If defined, uses a Secret to pull an image from a private Docker registry or repository.
 imagePullSecrets: []
@@ -31,6 +31,9 @@ serviceAccount:
 
 # -- Annotations to be added to pods
 podAnnotations: {}
+
+# -- Labels to be added to pods
+podLabels: {}
 
 # -- pod-level security context
 podSecurityContext: {}
