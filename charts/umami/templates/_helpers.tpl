@@ -48,6 +48,9 @@ Selector labels
 {{- define "umami.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "umami.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- with .Values.podLabels }}
+{{ toYaml . }}
+{{- end }}
 {{- end }}
 
 {{/*
@@ -66,7 +69,7 @@ Return the hostname of the database to use
 */}}
 {{- define "umami.database.hostname" -}}
   {{- if .Values.postgresql.enabled -}}
-    {{- printf "%s" (include "postgresql.primary.fullname" .Subcharts.postgresql) -}}
+    {{- printf "%s" (include "postgresql.v1.primary.fullname" .Subcharts.postgresql) -}}
   {{- else if .Values.mysql.enabled -}}
     {{- printf "%s" (include "mysql.primary.fullname" .Subcharts.mysql) -}}
   {{- else -}}
@@ -79,7 +82,7 @@ Return database service port
 */}}
 {{- define "umami.database.port" -}}
   {{- if .Values.postgresql.enabled -}}
-    {{- printf "%s" (include "postgresql.service.port" .Subcharts.postgresql) -}}
+    {{- printf "%s" (include "postgresql.v1.service.port" .Subcharts.postgresql) -}}
   {{- else if .Values.mysql.enabled -}}
     {{- printf "%s" (tpl (toString .Values.mysql.primary.service.ports.mysql) $) -}}
   {{- else -}}
@@ -92,7 +95,7 @@ Return the name for the database to use
 */}}
 {{- define "umami.database.database" -}}
   {{- if .Values.postgresql.enabled -}}
-    {{- printf "%s" (include "postgresql.database" .Subcharts.postgresql) -}}
+    {{- printf "%s" (include "postgresql.v1.database" .Subcharts.postgresql) -}}
   {{- else if .Values.mysql.enabled -}}
     {{- printf "%s" (tpl .Values.mysql.auth.database $) -}}
   {{- else -}}
@@ -105,7 +108,7 @@ Return the name for the user to use
 */}}
 {{- define "umami.database.username" -}}
   {{- if .Values.postgresql.enabled -}}
-    {{- printf "%s" (include "postgresql.username" .Subcharts.postgresql) -}}
+    {{- printf "%s" (include "postgresql.v1.username" .Subcharts.postgresql) -}}
   {{- else if .Values.mysql.enabled -}}
     {{- printf "%s" (tpl .Values.mysql.auth.username $) -}}
   {{- else -}}
@@ -170,12 +173,12 @@ Get the key for the database url
 {{- end -}}
 
 {{/*
-Get the name of the secret containing the hash salt
+Get the name of the secret containing the app secret
 */}}
-{{- define "umami.hash.secretName" -}}
-  {{- if .Values.umami.hash.existingSecret -}}
-    {{- printf "%s" (tpl .Values.umami.hash.existingSecret $) -}}
+{{- define "umami.appSecret.secretName" -}}
+  {{- if .Values.umami.appSecret.existingSecret -}}
+    {{- printf "%s" (tpl .Values.umami.appSecret.existingSecret $) -}}
   {{- else -}}
-      {{- printf "%s" (include "umami.fullname" .) -}}-hash
+      {{- printf "%s" (include "umami.fullname" .) -}}-app-secret
   {{- end -}}
 {{- end -}}
