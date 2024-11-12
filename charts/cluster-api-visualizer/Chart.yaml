@@ -1,0 +1,23 @@
+apiVersion: v2
+name: cluster-api-visualizer
+description: Multicluster resource visualization tool for Cluster API.
+type: application
+version: 0.0.4
+appVersion: "v1.3.1"
+home: https://github.com/christianhuth/helm-charts
+icon: https://adalogics.com/img/content/capi-fuzzing-audit.png
+maintainers:
+  - name: christianhuth
+    email: christian@knell.it
+sources:
+  - https://github.com/Jont828/cluster-api-visualizer
+annotations:
+  artifacthub.io/changes: |
+    - kind: changed
+      description: added support for stable autoscaling api
+  artifacthub.io/screenshots: |
+    - title: Simply shorten your link using the Web UI.
+      url: https://github.com/Jont828/cluster-api-visualizer/raw/main/demo/demo.gif
+  artifacthub.io/signKey: |
+    fingerprint: EE24F8BB6D099E78FD704F83B5ECDBCDDD485D0E
+    url: https://charts.christianhuth.de/public.key

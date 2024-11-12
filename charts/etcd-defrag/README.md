@@ -5,9 +5,9 @@ A Helm chart for running a defragmentation CronJob for ETCD
 ## TL;DR;
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/etcd-defrag
+helm install my-release christianhuth/etcd-defrag
 ```
 
 ## Introduction
@@ -27,9 +27,9 @@ This chart bootstraps a CronJob to perform periodically [defragmentation for ETC
 To install the chart with the release name `my-release`:
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/etcd-defrag
+helm install my-release christianhuth/etcd-defrag
 ```
 
 These commands deploy the CronJob on the Kubernetes cluster in the default configuration. The [Values](#values) section lists the values that can be configured during installation.
@@ -92,7 +92,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | hostNetwork                               | bool   | `false`                                        | specify if the CronJob should run on the hostNetwork                                                                                                 |
 | image.pullPolicy                          | string | `"Always"`                                     | image pull policy                                                                                                                                    |
 | image.repository                          | string | `"bitnami/etcd"`                               | image repository                                                                                                                                     |
-| image.tag                                 | string | `"3.5.12"`                                     | Overrides the image tag                                                                                                                              |
+| image.tag                                 | string | `"3.5.15"`                                     | Overrides the image tag                                                                                                                              |
 | imagePullSecrets                          | list   | `[]`                                           | If defined, uses a Secret to pull an image from a private Docker registry or repository.                                                             |
 | nameOverride                              | string | `""`                                           | Provide a name in place of `etcd-defrag`                                                                                                             |
 | nodeSelector                              | object | `{"node-role.kubernetes.io/control-plane":""}` | Node labels for pod assignment                                                                                                                       |
@@ -109,5 +109,5 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```console
-helm install my-release -f values.yaml christianknell/etcd-defrag
+helm install my-release -f values.yaml christianhuth/etcd-defrag
 ```

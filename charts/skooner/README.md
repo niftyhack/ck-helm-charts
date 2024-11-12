@@ -5,9 +5,9 @@ Simple Kubernetes real-time dashboard and management.
 ## TL;DR;
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/skooner
+helm install my-release christianhuth/skooner
 ```
 
 ## Introduction
@@ -23,9 +23,9 @@ This chart bootstraps the Simple Kubernetes real-time dashboard and management t
 To install the chart with the release name `my-release`:
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/skooner
+helm install my-release christianhuth/skooner
 ```
 
 These commands deploy Skooner on the Kubernetes cluster in the default configuration. The [Values](#values) section lists the values that can be configured during installation.
@@ -86,11 +86,14 @@ The command removes all the Kubernetes components associated with the chart and 
 | serviceAccount.create                      | bool   | `true`                                   | Specifies whether a service account should be created                                                                  |
 | serviceAccount.name                        | string | `""`                                     | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations                                | list   | `[]`                                     | Toleration labels for pod assignment                                                                                   |
+| volumeMounts                                | list   | `[]`                                     | Container's volume mounts                                                                                   |
+| volumes                                | list   | `[]`                                     | Pod's volumes                                                                                  |
+
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```console
-helm install my-release -f values.yaml christianknell/skooner
+helm install my-release -f values.yaml christianhuth/skooner
 ```

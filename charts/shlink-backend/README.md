@@ -5,9 +5,9 @@ A PHP-based self-hosted URL shortener that can be used to serve shortened URLs u
 ## TL;DR;
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/shlink-backend
+helm install my-release christianhuth/shlink-backend
 ```
 
 ## Introduction
@@ -23,9 +23,9 @@ This chart bootstraps a self-hosted URL shortener called [Shlink](https://shlink
 To install the chart with the release name `my-release`:
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/shlink-backend
+helm install my-release christianhuth/shlink-backend
 ```
 
 These commands deploy Shlink on the Kubernetes cluster in the default configuration. The [Values](#values) section lists the values that can be configured during installation.
@@ -58,7 +58,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | fullnameOverride                           | string | `""`                       | String to fully override `"shlink-backend.fullname"`                                                                   |
 | image.pullPolicy                           | string | `"Always"`                 | image pull policy                                                                                                      |
 | image.repository                           | string | `"shlinkio/shlink"`        | image repository                                                                                                       |
-| image.tag                                  | string | `"3.7.3"`                  | Overrides the image tag                                                                                                |
+| image.tag                                  | string | `"3.7.4"`                  | Overrides the image tag                                                                                                |
 | imagePullSecrets                           | list   | `[]`                       | If defined, uses a Secret to pull an image from a private Docker registry or repository.                               |
 | ingress.annotations                        | object | `{}`                       |                                                                                                                        |
 | ingress.className                          | string | `""`                       |                                                                                                                        |
@@ -103,7 +103,7 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```console
-helm install my-release -f values.yaml christianknell/shlink-backend
+helm install my-release -f values.yaml christianhuth/shlink-backend
 ```
 
 ## Upgrading the Chart

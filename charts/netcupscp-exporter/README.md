@@ -5,9 +5,9 @@ Prometheus Exporter for Netcup Server Control Panel (SCP)
 ## TL;DR;
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/netcupscp-exporter
+helm install my-release christianhuth/netcupscp-exporter
 ```
 
 ## Introduction
@@ -23,9 +23,9 @@ This chart bootstraps a [Prometheus Exporter for Netcup ServerControlPanel (SCP)
 To install the chart with the release name `my-release`:
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/netcupscp-exporter
+helm install my-release christianhuth/netcupscp-exporter
 ```
 
 These commands deploy Skooner on the Kubernetes cluster in the default configuration. The [Values](#values) section lists the values that can be configured during installation.
@@ -58,7 +58,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | image.pullPolicy                           | string | `"Always"`                   | image pull policy                                                                                                      |
 | image.registry                             | string | `"ghcr.io"`                  | image registry                                                                                                         |
 | image.repository                           | string | `"mrueg/netcupscp-exporter"` | image repository                                                                                                       |
-| image.tag                                  | string | `"v0.3.3"`                   | Overrides the image tag                                                                                                |
+| image.tag                                  | string | `"v0.3.6"`                   | Overrides the image tag                                                                                                |
 | imagePullSecrets                           | list   | `[]`                         | If defined, uses a Secret to pull an image from a private Docker registry or repository.                               |
 | ingress.annotations                        | object | `{}`                         |                                                                                                                        |
 | ingress.className                          | string | `""`                         |                                                                                                                        |
@@ -94,5 +94,5 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```console
-helm install my-release -f values.yaml christianknell/netcupscp-exporter
+helm install my-release -f values.yaml christianhuth/netcupscp-exporter
 ```

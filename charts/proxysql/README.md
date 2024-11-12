@@ -5,9 +5,9 @@ A proxysql Helm chart for Kubernetes. Offers option to expose web interface thro
 ## TL;DR;
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/proxysql
+helm install my-release christianhuth/proxysql
 ```
 
 ## Introduction
@@ -23,9 +23,9 @@ This chart bootstraps a [ProxySQL](https://github.com/sysown/proxysql) deploymen
 To install the chart with the release name `my-release`:
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/proxysql
+helm install my-release christianhuth/proxysql
 ```
 
 These commands deploy proxysql on the Kubernetes cluster in the default configuration. The [Values](#values) section lists the values that can be configured during installation.
@@ -54,7 +54,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | fullnameOverride                                                   | string | `""`                                                                   | String to fully override `"proxysql.fullname"`                                                                         |
 | image.pullPolicy                                                   | string | `"Always"`                                                             | image pull policy                                                                                                      |
 | image.repository                                                   | string | `"proxysql/proxysql"`                                                  | image repository                                                                                                       |
-| image.tag                                                          | string | `"2.5.5"`                                                              | Overrides the image tag                                                                                                |
+| image.tag                                                          | string | `"2.7.1"`                                                              | Overrides the image tag                                                                                                |
 | imagePullSecrets                                                   | list   | `[]`                                                                   | If defined, uses a Secret to pull an image from a private Docker registry or repository.                               |
 | ingress.annotations."nginx.ingress.kubernetes.io/backend-protocol" | string | `"HTTPS"`                                                              |                                                                                                                        |
 | ingress.className                                                  | string | `""`                                                                   |                                                                                                                        |
@@ -119,5 +119,5 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```console
-helm install my-release -f values.yaml christianknell/proxysql
+helm install my-release -f values.yaml christianhuth/proxysql
 ```

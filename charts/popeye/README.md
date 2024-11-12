@@ -5,9 +5,9 @@ Popeye - A Kubernetes Cluster Sanitizer
 ## TL;DR;
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/popeye
+helm install my-release christianhuth/popeye
 ```
 
 ## Introduction
@@ -23,9 +23,9 @@ This chart bootstraps the Kubernetes cluster resource sanitizer called [popeye](
 To install the chart with the release name `my-release`:
 
 ```console
-helm repo add christianknell https://christianknell.github.io/helm-charts
+helm repo add christianhuth https://charts.christianhuth.de
 helm repo update
-helm install my-release christianknell/popeye
+helm install my-release christianhuth/popeye
 ```
 
 These commands deploy popeye on the Kubernetes cluster in the default configuration. The [Values](#values) section lists the values that can be configured during installation.
@@ -60,11 +60,11 @@ The command removes all the Kubernetes components associated with the chart and 
 | cronJob.s3.endpoint                         | string | `""`                                           | example endpoint: "https://s3.us-east-1.amazonaws.com"                                                                          |
 | cronJob.s3.region                           | string | `""`                                           | example region: "us-east-1"                                                                                                     |
 | cronJob.schedule                            | string | `"* */1 * * *"`                                |                                                                                                                                 |
-| cronJob.spinachConfiguration                | string | `""`                                           |                                                                                                                                 |
+| cronJob.spinachConfiguration                | object | `{}`                                           |                                                                                                                                 |
 | fullnameOverride                            | string | `""`                                           | String to fully override `"popeye.fullname"`                                                                                    |
 | image.pullPolicy                            | string | `"Always"`                                     | image pull policy                                                                                                               |
 | image.repository                            | string | `"derailed/popeye"`                            | image repository                                                                                                                |
-| image.tag                                   | string | `"v0.20.2"`                                    | Overrides the image tag                                                                                                         |
+| image.tag                                   | string | `"v0.21.3"`                                    | Overrides the image tag                                                                                                         |
 | imagePullSecrets                            | list   | `[]`                                           | If defined, uses a Secret to pull an image from a private Docker registry or repository.                                        |
 | nameOverride                                | string | `""`                                           | Provide a name in place of `popeye`                                                                                             |
 | nodeSelector                                | object | `{}`                                           | Node labels for pod assignment                                                                                                  |
@@ -82,7 +82,7 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```console
-helm install my-release -f values.yaml christianknell/popeye
+helm install my-release -f values.yaml christianhuth/popeye
 ```
 
 ## Upgrading the Chart

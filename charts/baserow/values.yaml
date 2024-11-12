@@ -12,7 +12,7 @@ frontend:
     # -- image pull policy
     pullPolicy: Always
     # -- Overrides the image tag
-    tag: "1.22.3"
+    tag: "1.26.1"
 
   # -- If defined, uses a Secret to pull an image from a private Docker registry or repository.
   imagePullSecrets: []
@@ -25,6 +25,9 @@ frontend:
     fsGroup: 9999
     runAsGroup: 9999
     runAsUser: 9999
+
+  # -- Pod priority class name
+  priorityClassName: ""
 
   # -- Number of replicas
   replicaCount: 1
@@ -100,6 +103,22 @@ frontend:
     # -- Target Memory utilization percentage
     targetMemoryUtilizationPercentage: 80
 
+  livenessProbe:
+    # -- Initial delay seconds for livenessProbe
+    initialDelaySeconds: 5
+    # -- Period seconds for livenessProbe
+    periodSeconds: 5
+    # -- Success threshold for livenessProbe
+    successThreshold: 1
+
+  readinessProbe:
+    # -- Initial delay seconds for readinessProbe
+    initialDelaySeconds: 5
+    # -- Period seconds for readinessProbe
+    periodSeconds: 5
+    # -- Success threshold for readinessProbe
+    successThreshold: 1
+
   # -- Node labels for pod assignment
   nodeSelector: {}
 
@@ -108,6 +127,9 @@ frontend:
 
   # -- Affinity settings for pod assignment
   affinity: {}
+
+  # -- Additional labels to add to the pod
+  selectorLabels: {}
 
   # -- additional environment variables to be added to the pods
   extraEnv: []
@@ -133,7 +155,7 @@ backend:
       # -- image pull policy
       pullPolicy: Always
       # -- Overrides the image tag
-      tag: "1.22.3"
+      tag: "1.26.1"
 
     # -- If defined, uses a Secret to pull an image from a private Docker registry or repository.
     imagePullSecrets: []
@@ -146,6 +168,9 @@ backend:
       fsGroup: 9999
       runAsGroup: 9999
       runAsUser: 9999
+
+    # -- Pod priority class name
+    priorityClassName: ""
 
     # -- Number of replicas
     replicaCount: 1
@@ -199,6 +224,26 @@ backend:
       # -- Target Memory utilization percentage
       targetMemoryUtilizationPercentage: 80
 
+    livenessProbe:
+      # -- Initial delay seconds for livenessProbe
+      initialDelaySeconds: 5
+      # -- Period seconds for livenessProbe
+      periodSeconds: 5
+      # -- Success threshold for livenessProbe
+      successThreshold: 1
+      # -- Timeout seconds for livenessProbe
+      timeoutSeconds: 5
+
+    readinessProbe:
+      # -- Initial delay seconds for readinessProbe
+      initialDelaySeconds: 5
+      # -- Period seconds for readinessProbe
+      periodSeconds: 5
+      # -- Success threshold for readinessProbe
+      successThreshold: 1
+      # -- Timeout seconds for readinessProbe
+      timeoutSeconds: 5
+
     # -- Node labels for pod assignment
     nodeSelector: {}
 
@@ -207,6 +252,9 @@ backend:
 
     # -- Affinity settings for pod assignment
     affinity: {}
+
+    # -- Additional labels to add to the pod
+    selectorLabels: {}
 
     # -- additional environment variables to be added to the pods
     extraEnv: []
@@ -219,7 +267,7 @@ backend:
       # -- image pull policy
       pullPolicy: Always
       # -- Overrides the image tag
-      tag: "1.22.3"
+      tag: "1.26.1"
 
     # -- If defined, uses a Secret to pull an image from a private Docker registry or repository.
     imagePullSecrets: []
@@ -232,6 +280,9 @@ backend:
       fsGroup: 9999
       runAsGroup: 9999
       runAsUser: 9999
+
+    # -- Pod priority class name
+    priorityClassName: ""
 
     # -- Number of replicas
     replicaCount: 1
@@ -279,6 +330,22 @@ backend:
       # -- Target Memory utilization percentage
       targetMemoryUtilizationPercentage: 80
 
+    livenessProbe:
+      # -- Initial delay seconds for livenessProbe
+      initialDelaySeconds: 10
+      # -- Period seconds for livenessProbe
+      periodSeconds: 10
+      # -- Timeout seconds for livenessProbe
+      timeoutSeconds: 10
+
+    readinessProbe:
+      # -- Initial delay seconds for readinessProbe
+      initialDelaySeconds: 10
+      # -- Period seconds for readinessProbe
+      periodSeconds: 10
+      # -- Timeout seconds for readinessProbe
+      timeoutSeconds: 10
+
     # -- Node labels for pod assignment
     nodeSelector: {}
 
@@ -287,6 +354,9 @@ backend:
 
     # -- Affinity settings for pod assignment
     affinity: {}
+
+    # -- Additional labels to add to the pod
+    selectorLabels: {}
 
     # -- additional environment variables to be added to the pods
     extraEnv: []
@@ -453,7 +523,7 @@ backend:
       # -- image pull policy
       pullPolicy: Always
       # -- Overrides the image tag
-      tag: "1.22.3"
+      tag: "1.26.1"
 
     # -- If defined, uses a Secret to pull an image from a private Docker registry or repository.
     imagePullSecrets: []
@@ -466,6 +536,9 @@ backend:
       fsGroup: 9999
       runAsGroup: 9999
       runAsUser: 9999
+
+    # -- Pod priority class name
+    priorityClassName: ""
 
     # -- Number of replicas
     replicaCount: 1
@@ -519,6 +592,26 @@ backend:
       # -- Target Memory utilization percentage
       targetMemoryUtilizationPercentage: 80
 
+    livenessProbe:
+      # -- Initial delay seconds for livenessProbe
+      initialDelaySeconds: 5
+      # -- Period seconds for livenessProbe
+      periodSeconds: 5
+      # -- Success threshold for livenessProbe
+      successThreshold: 1
+      # -- Timeout seconds for livenessProbe
+      timeoutSeconds: 5
+
+    readinessProbe:
+      # -- Initial delay seconds for readinessProbe
+      initialDelaySeconds: 5
+      # -- Period seconds for readinessProbe
+      periodSeconds: 5
+      # -- Success threshold for readinessProbe
+      successThreshold: 1
+      # -- Timeout seconds for readinessProbe
+      timeoutSeconds: 5
+
     # -- Node labels for pod assignment
     nodeSelector: {}
 
@@ -527,6 +620,9 @@ backend:
 
     # -- Affinity settings for pod assignment
     affinity: {}
+
+    # -- Additional labels to add to the pod
+    selectorLabels: {}
 
     # -- additional environment variables to be added to the pods
     extraEnv: []
