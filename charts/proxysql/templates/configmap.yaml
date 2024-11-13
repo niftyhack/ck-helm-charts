@@ -40,7 +40,7 @@ data:
       {{- if .Values.proxysql.mysql.galera.enabled }}
       {{- if not .Values.proxysql.mysql.slave.enabled }}
       monitor_galera_healthcheck_interval=5000
-      monitor_galera_healthcheck_timeout=1000
+      monitor_galera_healthcheck_timeout={{ .Values.proxysql.monitor.galera.healthcheck.timeout }}
       {{- end }}
       {{- end }}
       monitor_local_dns_cache_refresh_interval=0

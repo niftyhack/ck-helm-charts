@@ -140,6 +140,9 @@ proxysql:
     writerAsReader: true
     # user: "monitor"
     # password: "monitor"
+    galera:
+      healthcheck:
+        timeout: 1000
   restapi:
     enabled: false
     port: 6070
